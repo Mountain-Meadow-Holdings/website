@@ -26,6 +26,29 @@
       overflow-x: hidden;
     }
 
+    /* ── FIXED HEADER ── */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 64px;
+      background: rgba(10,18,25,0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 2.5rem;
+    }
+
+    .site-header img {
+      height: 56px;
+      width: auto;
+    }
+
     /* ── SECTIONS ── */
     section {
       position: relative;
@@ -300,12 +323,16 @@
 </head>
 <body>
 
+  <!-- FIXED HEADER -->
+  <header class="site-header">
+    <img src="logo.png" alt="Mountain Meadow Holdings" />
+  </header>
+
   <!-- SECTION 1: HERO -->
   <section id="s1">
     <div class="bg"></div>
     <div class="overlay"></div>
     <div class="content">
-      <img class="hero-logo" src="logo.png" alt="Mountain Meadow Holdings" />
       <p class="label">Integrity compounds.</p>
       <h2>Mountain Meadow Holdings</h2>
       <p class="body-text">
