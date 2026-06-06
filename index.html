@@ -215,11 +215,87 @@
       );
     }
 
+    /* ── LOGO ── */
+    .hero-logo {
+      display: block;
+      height: 64px;
+      width: auto;
+      mix-blend-mode: screen;
+      opacity: 0.92;
+      margin-bottom: 2rem;
+    }
+
+    /* ── NUMBERED BULLETS ── */
+    .bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin-bottom: 2.25rem;
+      max-width: 480px;
+    }
+
+    .bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .bullet-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--olive);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0;
+      margin-top: 0.1rem;
+    }
+
+    .bullet-num.primary {
+      background: var(--olive);
+      box-shadow: 0 0 0 2px rgba(138,150,118,0.35);
+    }
+
+    .bullet-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .bullet-text strong {
+      color: rgba(255,255,255,0.92);
+      font-weight: 400;
+    }
+
+    .primary-tag {
+      display: inline-block;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive);
+      border: 1px solid var(--olive);
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 640px) {
-      .logo-fixed { top: 1.25rem; left: 1.25rem; }
       section { padding: 3rem 1.75rem 3.5rem; }
       h2 { font-size: clamp(2.2rem, 10vw, 3rem); }
+      .hero-logo { height: 48px; }
     }
   </style>
 </head>
@@ -230,10 +306,11 @@
     <div class="bg"></div>
     <div class="overlay"></div>
     <div class="content">
+      <img class="hero-logo" src="logo.png" alt="Mountain Meadow Holdings" />
       <p class="label">Integrity compounds.</p>
       <h2>Mountain Meadow Holdings</h2>
       <p class="body-text">
-        Behind every great business is someone who gave it everything. We're here to take the torch -- and keep it burning. We don't buy to flip or strip. We buy to hold, invest, and grow -- because integrity compounds.
+        Behind every great business is someone who gave it everything. We're here to take the torch – and keep it burning. We don't buy to flip or strip. We buy to hold, invest, and grow – because integrity compounds.
       </p>
       <a href="#s2" class="scroll-btn" aria-label="Scroll down">
         <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
@@ -248,11 +325,20 @@
     <div class="content">
       <p class="label">Our Focus</p>
       <h2>How We Build Value</h2>
-      <p class="body-text">
-        <strong style="color:rgba(255,255,255,0.9);font-weight:400;">Acquisitions –</strong> Great businesses deserve great stewards. We acquire them, operate them, and hold them forever.<br /><br />
-        <strong style="color:rgba(255,255,255,0.9);font-weight:400;">Advisory –</strong> You built it. We help you scale it. Financially driven operators, hands-on from day one.<br /><br />
-        <strong style="color:rgba(255,255,255,0.9);font-weight:400;">Ventures –</strong> Sometimes we build from scratch. Our capital, our hands, our conviction.
-      </p>
+      <ul class="bullets">
+        <li>
+          <span class="bullet-num primary">1</span>
+          <span class="bullet-text"><strong>Acquisitions <span class="primary-tag">Primary</span></strong> – Great businesses deserve great stewards. We acquire them, operate them, and hold them forever.</span>
+        </li>
+        <li>
+          <span class="bullet-num">2</span>
+          <span class="bullet-text"><strong>Advisory</strong> – You built it. We help you scale it. Financially driven operators, hands-on from day one.</span>
+        </li>
+        <li>
+          <span class="bullet-num">3</span>
+          <span class="bullet-text"><strong>Ventures</strong> – Sometimes we build from scratch. Our capital, our hands, our conviction.</span>
+        </li>
+      </ul>
       <a href="#s3" class="scroll-btn" aria-label="Scroll down">
         <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
       </a>
