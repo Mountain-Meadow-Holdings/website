@@ -44,50 +44,9 @@
 
     /* Logo image — swap src once you extract logo files from the zip */
     .logo-img {
-      height: 90px;
+      height: clamp(100px, 18vw, 160px);
       width: auto;
       display: block;
-    }
-
-    .logo-wordmark {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .logo-wordmark .name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 4vw, 2.4rem);
-      letter-spacing: 0.22em;
-      color: #fff;
-      text-transform: uppercase;
-      font-weight: 400;
-      line-height: 1.1;
-    }
-
-    .logo-wordmark .rule-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      width: 100%;
-      justify-content: center;
-    }
-
-    .logo-wordmark .rule-line {
-      flex: 1;
-      max-width: 60px;
-      height: 1px;
-      background: var(--olive);
-    }
-
-    .logo-wordmark .sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.35em;
-      color: var(--olive);
-      text-transform: uppercase;
-      font-weight: 400;
     }
 
     /* ── NAV ── */
@@ -294,16 +253,7 @@
   <!-- HEADER -->
   <header>
     <div class="logo-wrap">
-      <!-- Replace logo.png with the actual logo file extracted from logo files.zip -->
-      <img class="logo-img" src="logo.png" alt="Mountain Meadow Holdings" onerror="this.style.display='none'" />
-      <div class="logo-wordmark">
-        <span class="name">Mountain Meadow</span>
-        <div class="rule-wrap">
-          <span class="rule-line"></span>
-          <span class="sub">Holdings</span>
-          <span class="rule-line"></span>
-        </div>
-      </div>
+      <img class="logo-img" src="logo.png" alt="Mountain Meadow Holdings" />
     </div>
   </header>
 
