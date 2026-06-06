@@ -6,340 +6,304 @@
   <title>Mountain Meadow Holdings</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #0F1F2D;
-      --olive:  #8A9676;
-      --cream:  #E7E6DE;
-      --slate:  #565F66;
-      --white:  #F6F6F4;
-      --rule:   rgba(138,150,118,0.35);
+      --navy:  #0F1F2D;
+      --olive: #8A9676;
+      --cream: #E7E6DE;
+      --white: #F6F6F4;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--white);
-      color: var(--navy);
-    }
-
-    /* ── HEADER ── */
-    header {
       background: var(--navy);
-      padding: 4rem 2rem 3.5rem;
-      text-align: center;
-      position: relative;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    .logo-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.25rem;
+    /* ── FIXED LOGO ── */
+    .logo-fixed {
+      position: fixed;
+      top: 1.75rem;
+      left: 2rem;
+      z-index: 100;
     }
 
-    /* Logo image — swap src once you extract logo files from the zip */
-    .logo-img {
-      height: clamp(100px, 18vw, 160px);
+    .logo-fixed img {
+      height: 36px;
       width: auto;
-      display: block;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: var(--navy);
-      border-top: 1px solid rgba(138,150,118,0.2);
-      padding: 0 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-    }
-
-    nav a {
-      display: block;
-      padding: 0.9rem 0;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--olive);
-      border-bottom-color: var(--olive);
-    }
-
-    /* ── HERO TAGLINE ── */
-    .hero {
-      background: var(--cream);
-      text-align: center;
-      padding: 4rem 2rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .hero p {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      color: var(--slate);
-      font-weight: 400;
-      font-style: italic;
-      max-width: 640px;
-      margin: 0 auto;
-      line-height: 1.7;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
     }
 
     /* ── SECTIONS ── */
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
+    section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 4rem 3rem 4.5rem;
+      overflow: hidden;
     }
 
-    .section-label {
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    /* ── LABEL ── */
+    .label {
       font-family: 'Inter', sans-serif;
       font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--olive);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 3vw, 1.9rem);
       font-weight: 400;
-      color: var(--navy);
-      letter-spacing: 0.04em;
-      margin-bottom: 1.25rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-    }
-
-    section p {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.92rem;
-      line-height: 1.9;
-      color: var(--slate);
-      font-weight: 300;
-      max-width: 660px;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 3.5rem 0;
-    }
-
-    /* ── THREE ARMS GRID ── */
-    .arms {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .arm {
-      padding: 2rem;
-      border: 1px solid var(--rule);
-      background: #fff;
-      position: relative;
-    }
-
-    .arm::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 100%;
-      background: var(--olive);
-    }
-
-    .arm-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.58rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--olive);
-      font-weight: 500;
-      margin-bottom: 0.6rem;
-    }
-
-    .arm h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: var(--navy);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.9rem;
-    }
-
-    .arm p {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      line-height: 1.85;
-      color: var(--slate);
-      font-weight: 300;
-    }
-
-    /* ── CONTACT ── */
-    .contact-section {
-      background: var(--navy);
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    .contact-section .section-label {
-      color: var(--olive);
+      color: rgba(255,255,255,0.6);
       margin-bottom: 1rem;
     }
 
-    .contact-section h2 {
+    /* ── HEADING ── */
+    h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
       font-weight: 400;
+      line-height: 1.08;
       color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 1.25rem;
-    }
-
-    .contact-section p {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
-      font-weight: 300;
-      letter-spacing: 0.04em;
       margin-bottom: 1.5rem;
     }
 
-    .contact-section a {
-      display: inline-block;
+    /* ── BODY TEXT ── */
+    .body-text {
       font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--olive);
-      text-decoration: none;
-      border-bottom: 1px solid var(--olive);
-      padding-bottom: 2px;
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.72);
+      max-width: 480px;
+      margin-bottom: 2.25rem;
     }
 
-    .contact-section a:hover { color: #fff; border-color: #fff; }
+    /* ── SCROLL BUTTON ── */
+    .scroll-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.45);
+      color: #fff;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #07131e;
-      text-align: center;
-      padding: 1.5rem 2rem;
+    .scroll-btn:hover {
+      border-color: var(--olive);
+      background: rgba(138,150,118,0.15);
+    }
+
+    .scroll-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    /* ── PILL BUTTON ── */
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.55);
       font-family: 'Inter', sans-serif;
       font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      color: rgba(255,255,255,0.25);
+      font-weight: 400;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 1.75rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .pill-btn:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--olive);
+    }
+
+    /* ── ICON BUTTONS ── */
+    .icon-links {
+      display: flex;
+      gap: 0.85rem;
+    }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--olive);
+      background: rgba(138,150,118,0.15);
+    }
+
+    .icon-btn svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── SECTION 1 — HERO ── */
+    #s1 .bg {
+      background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80');
+    }
+
+    #s1 .overlay {
+      background: linear-gradient(
+        to top,
+        rgba(10,18,25,0.82) 0%,
+        rgba(10,18,25,0.35) 55%,
+        rgba(10,18,25,0.2) 100%
+      );
+    }
+
+    /* ── SECTION 2 — FOCUS ── */
+    #s2 .bg {
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');
+    }
+
+    #s2 .overlay {
+      background: linear-gradient(
+        to top,
+        rgba(10,18,25,0.9) 0%,
+        rgba(10,18,25,0.45) 55%,
+        rgba(10,18,25,0.25) 100%
+      );
+    }
+
+    /* ── SECTION 3 — CONTACT ── */
+    #s3 .bg {
+      background-image: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1920&q=80');
+    }
+
+    #s3 .overlay {
+      background: linear-gradient(
+        to top,
+        rgba(10,18,25,0.92) 0%,
+        rgba(10,18,25,0.55) 60%,
+        rgba(10,18,25,0.3) 100%
+      );
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .logo-fixed { top: 1.25rem; left: 1.25rem; }
+      section { padding: 3rem 1.75rem 3.5rem; }
+      h2 { font-size: clamp(2.2rem, 10vw, 3rem); }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo-wrap">
-      <img class="logo-img" src="logo.png" alt="Mountain Meadow Holdings" />
+  <!-- FIXED LOGO ICON -->
+  <div class="logo-fixed">
+    <img src="logo-icon.png" alt="MMH" onerror="this.style.display='none'" />
+  </div>
+
+  <!-- SECTION 1: HERO -->
+  <section id="s1">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <p class="label">Private Holding Company</p>
+      <h2>Mountain Meadow Holdings</h2>
+      <p class="body-text">
+        We acquire, build, and steward a portfolio of enduring businesses and assets — patiently, indefinitely, and with conviction.
+      </p>
+      <a href="#s2" class="scroll-btn" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+      </a>
     </div>
-  </header>
+  </section>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#focus">Our Focus</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <p>A private holding company built to acquire, build, and steward a portfolio of enduring businesses and assets.</p>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <main>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-label">About</div>
-      <h2>Who We Are</h2>
-      <p>
-        Mountain Meadow Holdings is a privately held company founded on the belief that meaningful wealth is built through patient,
-        principled ownership — not short-term transactions. We acquire, launch, and advise businesses with the intent to hold them
-        indefinitely, developing a portfolio of cash-generating assets across industries.
+  <!-- SECTION 2: FOCUS -->
+  <section id="s2">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <p class="label">Our Focus</p>
+      <h2>Three Ways We Build Value</h2>
+      <p class="body-text">
+        <strong style="color:rgba(255,255,255,0.9);font-weight:400;">Acquisitions —</strong> We source and acquire established, cash-flowing businesses and hold them forever. No flipping. No exits. Just patient, compounding ownership.<br /><br />
+        <strong style="color:rgba(255,255,255,0.9);font-weight:400;">Ventures —</strong> We found and capitalize new companies, maintaining meaningful equity stakes through the holding company in businesses worth building from scratch.<br /><br />
+        <strong style="color:rgba(255,255,255,0.9);font-weight:400;">Advisory —</strong> We advise early-stage companies and their investors, exchanging expertise for retainer and equity in companies worth watching.
       </p>
-      <p style="margin-top: 1rem;">
-        We are operators first. Our approach emphasizes hands-on management, disciplined deal selection, and long-term value
-        creation over exit-driven returns.
+      <a href="#s3" class="scroll-btn" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CONTACT -->
+  <section id="s3">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <p class="label">Get In Touch</p>
+      <h2>Let's Talk.</h2>
+      <p class="body-text">
+        Inquiries regarding acquisitions, partnerships, or advisory engagements are welcome.
       </p>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- THREE ARMS -->
-    <section id="focus">
-      <div class="section-label">Our Focus</div>
-      <h2>What We Do</h2>
-      <p>Our activities are organized across three complementary arms, each aligned with a distinct strategy for building and sustaining long-term value.</p>
-
-      <div class="arms">
-        <div class="arm">
-          <div class="arm-label">Acquisition Arm</div>
-          <h3>Acquisitions</h3>
-          <p>
-            We source and acquire established, profitable small businesses with strong cash flow. Our model is buy-and-hold —
-            we take companies under long-term management with no intent to sell, building a growing portfolio of durable,
-            real-economy assets.
-          </p>
-        </div>
-
-        <div class="arm">
-          <div class="arm-label">Venture Arm</div>
-          <h3>Ventures</h3>
-          <p>
-            We found and capitalize new companies, maintaining meaningful equity stakes through the holding company.
-            These are calculated, high-conviction bets — businesses we believe in and are willing to build from the ground up.
-          </p>
-        </div>
-
-        <div class="arm">
-          <div class="arm-label">Service Arm</div>
-          <h3>Advisory</h3>
-          <p>
-            We provide strategic advisory services to early-stage companies and their investors, engaging in exchange for
-            retainer and equity. This arm keeps us close to emerging opportunities and connected to the broader investment community.
-          </p>
-        </div>
+      <a href="mailto:anthony@mountainmeadowholdings.us" class="pill-btn">
+        anthony@mountainmeadowholdings.us &nbsp;→
+      </a>
+      <div class="icon-links">
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/company/mountain-meadow-holdings" class="icon-btn" aria-label="LinkedIn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <!-- Email -->
+        <a href="mailto:anthony@mountainmeadowholdings.us" class="icon-btn" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
       </div>
-    </section>
-
-  </main>
-
-  <!-- CONTACT -->
-  <div class="contact-section" id="contact">
-    <div class="section-label">Contact</div>
-    <h2>Get In Touch</h2>
-    <p>For inquiries regarding acquisitions, partnerships, or advisory engagements.</p>
-    <a href="mailto:anthony@mountainmeadowholdings.us">anthony@mountainmeadowholdings.us</a>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2026 Mountain Meadow Holdings &mdash; All Rights Reserved
-  </footer>
+    </div>
+  </section>
 
 </body>
 </html>
