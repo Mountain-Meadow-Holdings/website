@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mountain Meadow Holdings</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #3a5a40;
+      --green-light: #588157;
+      --cream: #f8f5f0;
+      --text: #2c2c2c;
+      --muted: #6b6b6b;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--green);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      letter-spacing: 0.05em;
+      font-weight: normal;
+    }
+
+    header p.tagline {
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    main {
+      flex: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    section + section {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid #ddd;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.8;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: var(--green-light);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    footer {
+      background: var(--green);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 1.5rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mountain Meadow Holdings</h1>
+    <p class="tagline">Private Holding Company</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About</h2>
+      <p>
+        Mountain Meadow Holdings is a privately held company focused on the strategic acquisition,
+        management, and long-term development of business interests across select industries.
+        We take a patient, principled approach to building lasting value.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        For inquiries, please reach us at<br />
+        <a href="mailto:info@mountainmeadowholdings.com">info@mountainmeadowholdings.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Mountain Meadow Holdings &mdash; All rights reserved.
+  </footer>
+
+</body>
+</html>
